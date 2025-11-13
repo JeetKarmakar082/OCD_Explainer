@@ -3,7 +3,8 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <!-- <meta name="viewport" content="width=device-width,initial-scale=1" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oral Cancer Detection — Complete Explainer (MobileNetV2 + Django)</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
@@ -239,6 +240,96 @@
             border-radius: 6px;
             border: 1px solid rgba(16, 42, 67, 0.03);
             display: block
+        }
+
+
+        /* Ensure proper scaling on mobile */
+        meta[name="viewport"] {
+            content: "width=device-width, initial-scale=1.0";
+        }
+
+        /* Responsive fixes for small screens */
+        @media (max-width: 768px) {
+
+            body,
+            html {
+                overflow-x: hidden;
+            }
+
+            .card,
+            .section,
+            .container {
+                width: 95%;
+                margin: 10px auto;
+                padding: 12px;
+                box-sizing: border-box;
+            }
+
+            h1 {
+                font-size: 1.6em !important;
+                text-align: center;
+            }
+
+            h2 {
+                font-size: 1.3em !important;
+            }
+
+            h3 {
+                font-size: 1.1em !important;
+            }
+
+            p,
+            li {
+                font-size: 0.95em !important;
+                line-height: 1.5em;
+            }
+
+            img,
+            video,
+            iframe,
+            canvas {
+                max-width: 100%;
+                height: auto;
+                display: block;
+                margin: auto;
+            }
+
+            pre,
+            code {
+                max-width: 100%;
+                overflow-x: auto;
+                white-space: pre-wrap;
+                word-break: break-word;
+                font-size: 0.9em;
+            }
+
+            button,
+            .btn,
+            .copy-btn {
+                width: 100%;
+                margin: 6px 0;
+                font-size: 1em;
+                padding: 10px;
+                box-sizing: border-box;
+            }
+
+            input[type="range"] {
+                width: 100%;
+            }
+
+            /* Adjust slider container */
+            .slider-container {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .output-box {
+                font-size: 1em;
+                margin-top: 8px;
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -732,17 +823,17 @@ open('model.tflite','wb').write(tflite_model)</code></pre>
 
 
 
-    <section id="resources" class="card">
-        <h2 class="section">Resources & Next Steps</h2>
-        <ul class="muted">
-            <li>MobileNetV2 paper — Sandler et al., 2018</li>
-            <li>TensorFlow Keras docs — models & preprocess_input</li>
-            <li>Grad-CAM libraries and implementations</li>
-            <li>How to create a clinical validation dataset and ethics considerations</li>
-        </ul>
-    </section>
+            <section id="resources" class="card">
+                <h2 class="section">Resources & Next Steps</h2>
+                <ul class="muted">
+                    <li>MobileNetV2 paper — Sandler et al., 2018</li>
+                    <li>TensorFlow Keras docs — models & preprocess_input</li>
+                    <li>Grad-CAM libraries and implementations</li>
+                    <li>How to create a clinical validation dataset and ethics considerations</li>
+                </ul>
+            </section>
 
-    </main>
+        </main>
     </div>
 
     <script>
