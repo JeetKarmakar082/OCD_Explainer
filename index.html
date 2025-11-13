@@ -243,88 +243,73 @@
         }
 
         /* Responsive fixes for small screens */
-        @media (max-width: 768px) {
+        /* ===== Minimal responsive override - paste at the END of your existing <style> ===== */
+/* Ensure viewport meta is present in <head>: <meta name="viewport" content="width=device-width, initial-scale=1"> */
 
-            body,
-            html {
-                overflow-x: hidden;
-            }
+@media screen and (max-width: 992px) {
+  /* Make header stack and shrink */
+  header { flex-wrap: wrap; padding: 18px; }
+  header > div { width: 100%; }
+  header h1 { font-size: 1.25rem; margin-bottom: 6px; }
 
-            .card,
-            .section,
-            .container {
-                width: 95%;
-                margin: 10px auto;
-                padding: 12px;
-                box-sizing: border-box;
-            }
+  /* Collapse two-column layout into single column */
+  .container { grid-template-columns: 1fr !important; grid-auto-rows: auto; gap: 12px; padding: 12px; }
 
-            h1 {
-                font-size: 1.6em !important;
-                text-align: center;
-            }
+  /* Make nav behave as a top block instead of a fixed tall sidebar */
+  nav {
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    box-shadow: none !important;
+    padding-bottom: 12px;
+  }
 
-            h2 {
-                font-size: 1.3em !important;
-            }
+  /* Nav links become inline-ish and readable */
+  nav ul { display: flex; flex-wrap: wrap; gap: 6px; }
+  nav li { margin: 0; }
+  nav a { padding: 8px 10px; font-size: 0.95rem; }
 
-            h3 {
-                font-size: 1.1em !important;
-            }
+  /* Main content should fill width */
+  main { padding: 8px; }
 
-            p,
-            li {
-                font-size: 0.95em !important;
-                line-height: 1.5em;
-            }
+  /* Cards spacing and padding reduced for small screens */
+  .card { margin: 10px auto; padding: 14px; border-radius: 10px; box-shadow: none; }
 
-            img,
-            video,
-            iframe,
-            canvas {
-                max-width: 100%;
-                height: auto;
-                display: block;
-                margin: auto;
-            }
+  /* Make code blocks scrollable and wrap where possible */
+  pre.code, pre.light {
+    font-size: 0.86rem;
+    padding: 12px;
+    white-space: pre; /* keep monospace formatting, allow horizontal scroll */
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
 
-            pre,
-            code {
-                max-width: 100%;
-                overflow-x: auto;
-                white-space: pre-wrap;
-                word-break: break-word;
-                font-size: 0.9em;
-            }
+  /* Make big code blocks collapsible spacing friendly */
+  pre.code { max-width: 100%; }
 
-            button,
-            .btn,
-            .copy-btn {
-                width: 100%;
-                margin: 6px 0;
-                font-size: 1em;
-                padding: 10px;
-                box-sizing: border-box;
-            }
+  /* Make buttons full-width and stacked */
+  .btn, .copy-btn { width: 100%; display: block; margin: 8px 0; box-sizing: border-box; }
 
-            input[type="range"] {
-                width: 100%;
-            }
+  /* Ensure nav doesn't take too much vertical space */
+  nav h2 { margin-top: 0; }
 
-            /* Adjust slider container */
-            .slider-container {
-                width: 100%;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
+  /* Make the contents inside cblk adapt */
+  .cblk { padding: 10px; }
 
-            .output-box {
-                font-size: 1em;
-                margin-top: 8px;
-                text-align: center;
-            }
-        }
+  /* Improve readability of long lists and paragraphs */
+  p, li { font-size: 0.98rem; line-height: 1.45; }
+
+  /* Ensure header icon + text fit well */
+  header div:first-child { flex: 0 0 48px; margin-right: 10px; }
+}
+
+/* Extra override for very small phones */
+@media screen and (max-width: 420px) {
+  nav ul { gap: 4px; }
+  header h1 { font-size: 1.05rem; }
+  .muted { font-size: 0.95rem; }
+  pre.code { font-size: 0.82rem; }
+}
     </style>
 </head>
 
@@ -858,4 +843,5 @@ open('model.tflite','wb').write(tflite_model)</code></pre>
 </body>
 
 </html>
+
 
